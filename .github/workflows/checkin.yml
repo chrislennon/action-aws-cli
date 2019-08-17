@@ -1,9 +1,15 @@
-name: "PR Checks"
-on: [pull_request, push]
-
+name: "Test Master"
+on:
+  push:
+    branches:
+      - master
 jobs:
-  check_pr:
-    runs-on: ubuntu-latest
+  build:
+    runs-on: ubuntu-18.04
+#    runs-on: $
+#    strategy:
+#      matrix:
+#        os: [macOS-10.14, windows-2016, ubuntu-18.04]
     steps:
     - uses: actions/checkout@v1
 

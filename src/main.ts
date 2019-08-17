@@ -13,8 +13,11 @@ export async function run(): Promise<void> {
     toolPath = tc.find('aws', '*')
 
     if (!toolPath) {
+      // download
       const downloadUrl = `https://s3.amazonaws.com/aws-cli/awscli-bundle.zip`
       const downloadPath = await tc.downloadTool(downloadUrl)
+
+      // extract
       let extPath: string
       if (osPlat === 'darwin') {
         extPath = await tc.extractTar(downloadPath)
@@ -23,15 +26,16 @@ export async function run(): Promise<void> {
         extPath = __dirname
         await execP(`unzip ${downloadPath} -d ${extPath}`)
       } else {
-        extPath = '/home/runner/work/_temp/'
+        extPath = await tc.extractZip(downloadPath)
       }
 
+      // install
       const installPath = `${extPath}/.local/lib/aws`
       const binPath = `${installPath}/bin`
 
       await execP(`${extPath}/awscli-bundle/install -i ${installPath}`)
 
-      await new Promise(async (resolve, reject)=> {
+      await new Promise(async (resolve, reject)=> { // wrapped in promise to control stderr
         exec(`${binPath}/aws --version`, async (err, stout, sterr) => {
           const response = err ? stout : sterr
           const regex = /(\d+\.)(\d+\.)(\d+)/g

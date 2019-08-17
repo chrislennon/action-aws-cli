@@ -29,10 +29,8 @@ describe('Setup And Install Drone', () => {
     jest.setTimeout(10000)
   })
 
-  it('Will download and check drone-cli', async () => {
-    jest.setTimeout(10000)
+  it('Will download and check aws-cli', async () => {
     await run()
-    //expect(installedVersion).toEqual(version)
   }, 10000);
 
 });
