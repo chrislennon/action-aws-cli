@@ -1,5 +1,6 @@
 import * as core from '@actions/core'
 import * as tc from '@actions/tool-cache'
+import * as io from '@actions/io'
 import { promisify } from 'util'
 import { exec } from 'child_process'
 
@@ -13,8 +14,9 @@ export async function run(): Promise<void> {
       if (!toolPath) {
         const downloadUrl = `https://s3.amazonaws.com/aws-cli/awscli-bundle.zip`
         const downloadPath = await tc.downloadTool(downloadUrl)
-        //const extPath = await tc.extractZip(downloadPath)
-        const extPath = `${downloadPath}/../unpacked`
+        // const extPath = await tc.extractZip(downloadPath)
+        const extPath = `../unpacked`
+        await io.mkdirP(extPath)
         await execP(`unzip ${downloadPath} -d ${extPath}`)
 
         const installPath = `${extPath}/.local/lib/aws`
