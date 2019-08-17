@@ -13,7 +13,10 @@ export async function run(): Promise<void> {
       if (!toolPath) {
         const downloadUrl = `https://s3.amazonaws.com/aws-cli/awscli-bundle.zip`
         const downloadPath = await tc.downloadTool(downloadUrl)
-        const extPath = await tc.extractZip(downloadPath)
+        //const extPath = await tc.extractZip(downloadPath)
+        const extPath = './unpacked'
+        await execP(`unzip ${downloadPath} -d ${extPath}`)
+
         const installPath = `${extPath}/.local/lib/aws`
         const binPath = `${installPath}/bin`
         await execP(`${extPath}/awscli-bundle/install -i ${installPath}`)
