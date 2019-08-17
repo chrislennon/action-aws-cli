@@ -30,6 +30,7 @@ describe('Setup And Install Drone', () => {
   })
 
   it('Will download and check aws-cli', async () => {
+    jest.setTimeout(10000)
     await run()
   }, 10000);
 
