@@ -1,29 +1,32 @@
 {
-  "name": "node12-template-action",
-  "version": "0.0.0",
+  "name": "action-aws-cli",
+  "version": "0.0.1",
   "private": true,
-  "description": "Node 12 template action",
+  "description": "Installs AWS cli",
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest"
+    "test": "jest",
+    "publish": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD); if [[ $branch == \"master\" ]]; then npm run-script \"change-branch\"; else npm run-script \"create-publish\"; fi;",
+    "change-branch": "echo \"Should not publish on master\" && exit 1",
+    "create-publish": "npm i && npm run build && git rm -rq --ignore-unmatch ./node_modules && rm -rf ./node_modules && npm i --production && git add . && echo \"Ready to commit\" && exit 0"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/actions/node12-template.git"
+    "url": "git+https://github.com/chrislennon/action-aws-cli.git"
   },
   "keywords": [
     "actions",
     "node",
     "setup"
   ],
-  "author": "GitHub",
+  "author": "chrislennon",
   "license": "MIT",
   "dependencies": {
     "@actions/core": "^1.0.0",
-    "@actions/io": "^1.0.0",
     "@actions/exec": "^1.0.0",
     "@actions/github": "^1.0.0",
+    "@actions/io": "^1.0.0",
     "@actions/tool-cache": "^1.0.0",
     "semver": "^6.1.1"
   },

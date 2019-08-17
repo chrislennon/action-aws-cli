@@ -1,9 +1,23 @@
-# JavaScript Action Template
+# action-aws-cli
 
-This template offers an easy way to get started writing a javascript action with TypeScript compile time support, unit testing with Jest and using the GitHub Actions Toolkit.
+Action to install AWS cli
 
-## Getting Started
+## Usage
 
-See the walkthrough located [here](https://github.com/actions/toolkit/blob/master/docs/javascript-action.md).
+Example
+````yaml
+name: Example
 
-In addition to walking your through how to create an action, it also provides strategies for versioning, releasing and referencing your actions.
+on:
+  push
+
+jobs:
+  listS3:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: chrislennon/action-aws-cli@v1
+      - run: aws s3 ls
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+````
