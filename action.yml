@@ -1,4 +1,4 @@
-name: 'AWS cli install iction'
+name: 'AWS cli install action'
 description: 'Installs AWS CLI'
 author: 'chrislennon'
 branding:
