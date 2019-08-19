@@ -6,7 +6,8 @@
   "main": "lib/main.js",
   "scripts": {
     "build": "tsc",
-    "test": "jest",
+    "test": "jest --coverage",
+    "format": "eslint --fix './src/**/*.ts'; eslint --fix './__tests__/**/*.ts'",
     "publish": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD); if [[ $branch == \"master\" ]]; then npm run-script \"change-branch\"; else npm run-script \"create-publish\"; fi;",
     "change-branch": "echo \"Should not publish on master\" && exit 1",
     "create-publish": "npm i && npm run build && git rm -rq --ignore-unmatch ./node_modules && rm -rf ./node_modules && npm i --production && git add . && echo \"Ready to commit\" && exit 0"
@@ -27,15 +28,21 @@
     "@actions/exec": "^1.0.0",
     "@actions/github": "^1.0.0",
     "@actions/io": "^1.0.0",
-    "@actions/tool-cache": "^1.0.0",
+    "@actions/tool-cache": "github:chrislennon/actions-toolkit-tool-cache#master",
+    "firstline": "^2.0.2",
     "semver": "^6.1.1"
   },
   "devDependencies": {
     "@types/jest": "^24.0.13",
+    "@types/nock": "^10.0.3",
     "@types/node": "^12.0.4",
     "@types/semver": "^6.0.0",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^5.16.0",
     "jest": "^24.8.0",
     "jest-circus": "^24.7.1",
+    "nock": "^10.0.6",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.1"
   }
