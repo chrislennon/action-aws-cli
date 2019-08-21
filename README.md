@@ -1,3 +1,7 @@
+<p align="center">
+  <a href="https://github.com/chrislennon/action-aws-cli"><img alt="GitHub Actions status" src="https://github.com/chrislennon/action-aws-cli/workflows/master%20builds/badge.svg"></a>
+</p>
+
 # action-aws-cli
 
 Action to install AWS cli
