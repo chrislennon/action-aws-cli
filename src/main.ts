@@ -15,4 +15,4 @@ export async function _installTool(): Promise<string>{
   return toolCachePath
 }
 
-// if (process.env.NODE_ENV != 'test') (async () => await _installTool())()
+if (process.env.NODE_ENV != 'test') (async () => await _installTool())()

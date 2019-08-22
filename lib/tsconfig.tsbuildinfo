@@ -310,7 +310,7 @@
         "signature": "ea81a7071c1e70a36ddf3274bc5bc67e8bc5791833f496a14046df74f0b6c094"
       },
       "/users/chris.lennon/development/action-aws-cli/src/main.ts": {
-        "version": "dc3ee34b81b09d2e4556f6c9df047aaba0a53f666f55cadb7ff79ca8890e3713",
+        "version": "965c70d46778cac2ebdd0d720ee2badf54fc5729b4d8c78c64244b723448c4e6",
         "signature": "692adc3bd4886b1e5179e80521b81eeec7e4e2aa14f31ab2fecfe97ef100c876"
       },
       "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts": {
@@ -1054,6 +1054,207 @@
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/async_hooks.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/buffer.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/child_process.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/cluster.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/child_process.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/console.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/constants.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/crypto.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dgram.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/domain.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/fs.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http2.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/fs.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tls.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/https.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tls.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/inspector.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/module.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/os.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/path.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/perf_hooks.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/async_hooks.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/process.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/punycode.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/querystring.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/readline.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/repl.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/readline.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/vm.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/string_decoder.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/timers.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tls.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/crypto.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/trace_events.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tty.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/querystring.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/v8.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/vm.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/worker_threads.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/vm.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/zlib.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/base.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/globals.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/assert.d.ts",
@@ -1097,19 +1298,19 @@
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/zlib.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/globals.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/globals.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
       "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/index.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/base.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/globals.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/nock/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/fs.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/index.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
       "/users/chris.lennon/development/action-aws-cli/node_modules/@actions/exec/lib/interfaces.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
@@ -1122,259 +1323,32 @@
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/async_hooks.d.ts": [
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@actions/io/lib/io.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/perf_hooks.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/async_hooks.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/buffer.d.ts": [
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__generator/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/child_process.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__traverse/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/cluster.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/child_process.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/parser/typings/babel-parser.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/console.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/constants.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/crypto.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tls.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/crypto.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/https.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tls.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http2.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/fs.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tls.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dgram.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/dns.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/tty.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/net.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/domain.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/worker_threads.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/vm.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/zlib.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/v8.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/readline.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/repl.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/readline.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/vm.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/fs.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/stream.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/inspector.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/events.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/module.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/os.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/path.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/process.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/punycode.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/querystring.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/querystring.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/string_decoder.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/timers.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/trace_events.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs-parser/index.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs-parser/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/stack-utils/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/semver/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/json-schema/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/jest/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/index.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/jest-diff/index.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/types.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/types.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/jest-diff/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-reports/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-report/index.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-coverage/index.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-report/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-coverage/index.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
-      ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/eslint-visitor-keys/index.d.ts": [
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__template/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/parser/typings/babel-parser.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
@@ -1387,44 +1361,70 @@
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__template/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/parser/typings/babel-parser.d.ts",
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/eslint-visitor-keys/index.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/parser/typings/babel-parser.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-coverage/index.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__traverse/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-report/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-coverage/index.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__generator/index.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-reports/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-report/index.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/istanbul-lib-coverage/index.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts": [
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/jest-diff/index.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@actions/io/lib/io.d.ts": [
+      "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/types.d.ts": [
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/globals.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/globals.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/types.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts": [
-        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts"
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/jest/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/jest-diff/build/index.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/jest-diff/index.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ],
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/vm.d.ts": [
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/json-schema/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/nock/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/fs.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/http.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/url.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/index.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/semver/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/stack-utils/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs-parser/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
+      ],
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs/index.d.ts": [
+        "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs-parser/index.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/util.d.ts",
         "/users/chris.lennon/development/action-aws-cli/node_modules/@types/node/ts3.2/util.d.ts"
       ]
@@ -1507,7 +1507,6 @@
       "/users/chris.lennon/development/action-aws-cli/node_modules/@actions/io/lib/io.d.ts",
       "/users/chris.lennon/development/action-aws-cli/src/util.ts",
       "/users/chris.lennon/development/action-aws-cli/src/toolhandler.ts",
-      "/users/chris.lennon/development/action-aws-cli/src/main.ts",
       "/users/chris.lennon/development/action-aws-cli/node_modules/@babel/types/lib/index.d.ts",
       "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__generator/index.d.ts",
       "/users/chris.lennon/development/action-aws-cli/node_modules/@types/babel__traverse/index.d.ts",
@@ -1527,7 +1526,8 @@
       "/users/chris.lennon/development/action-aws-cli/node_modules/@types/semver/index.d.ts",
       "/users/chris.lennon/development/action-aws-cli/node_modules/@types/stack-utils/index.d.ts",
       "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs-parser/index.d.ts",
-      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs/index.d.ts"
+      "/users/chris.lennon/development/action-aws-cli/node_modules/@types/yargs/index.d.ts",
+      "/users/chris.lennon/development/action-aws-cli/src/main.ts"
     ]
   },
   "version": "3.5.3"
