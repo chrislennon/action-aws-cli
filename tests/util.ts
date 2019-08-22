@@ -1,10 +1,10 @@
-import * as path from 'path'
+import {join} from 'path'
 
 export function getLocalDir(dir: string): string  {
-  const localDir = path.join(
+  const localDir = join(
     __dirname,
     'runner',
-    path.join(
+    join(
       Math.random()
         .toString(36)
         .substring(7)

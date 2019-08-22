@@ -1,5 +1,7 @@
+# @actions
 tests/runner/*
 
+# Mac
 .DS_Store
 
 # Logs

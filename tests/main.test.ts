@@ -1,4 +1,4 @@
-import { getLocalDir } from './util'
+import {getLocalDir} from './util'
 const tempPath =  getLocalDir('temp')
 const cachePath = getLocalDir('tools')
 
@@ -6,11 +6,11 @@ const cachePath = getLocalDir('tools')
 process.env['RUNNER_TEMP'] = tempPath
 process.env['RUNNER_TOOL_CACHE'] = cachePath
 
+import {rmRF} from '@actions/io'
+import {cacheFile, downloadTool, find} from '@actions/tool-cache'
+import nock from 'nock'
 import {_installTool} from '../src/main'
 import {_filterVersion} from "../src/util"
-import { rmRF } from '@actions/io'
-import { cacheFile, downloadTool, find } from '@actions/tool-cache'
-import nock from 'nock'
 
 function setupTest(): void
 {

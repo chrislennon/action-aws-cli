@@ -7,7 +7,7 @@
   "scripts": {
     "build": "tsc",
     "test": "jest --coverage",
-    "format": "eslint --fix './src/**/*.ts'; eslint --fix './__tests__/**/*.ts'",
+    "format": "eslint --fix './src/*.ts'; eslint --fix './tests/*.ts'",
     "publish": "branch=$(git rev-parse --symbolic-full-name --abbrev-ref HEAD); if [[ $branch == \"master\" ]]; then npm run-script \"change-branch\"; else npm run-script \"create-publish\"; fi;",
     "change-branch": "echo \"Should not publish on master\" && exit 1",
     "create-publish": "npm i && npm run build && git rm -rq --ignore-unmatch ./node_modules && rm -rf ./node_modules && npm i --production && git add . && echo \"Ready to commit\" && exit 0"
