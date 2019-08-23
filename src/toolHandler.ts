@@ -84,7 +84,7 @@ export class DownloadExtractInstall {
   private async _getVersion(): Promise<string> {
     //const cmd: string = IS_WINDOWS ? `${this.virtualEnvFile} && ${this.installedBinaryFile}` : this.installedBinaryFile
     if(IS_WINDOWS){
-      const cmd = `${this.virtualEnvFile} && python -c \'import site; print(site.getsitepackages())\'`
+      const cmd = `${this.virtualEnvFile} && python -c \"import site; print(site.getsitepackages())\"`
       const versionCommandOutput = await this._getCommandOutput(cmd, [])
       console.log(versionCommandOutput)
       this.pythonSitePackages = versionCommandOutput
