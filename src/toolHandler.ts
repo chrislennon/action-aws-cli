@@ -110,13 +110,15 @@ export class DownloadExtractInstall {
     const pythonPath: string = await which('python', true)
     const installCommand: string = IS_WINDOWS ? pythonPath : `${this.setupBinary} -i ${this.installDestinationDir}`
     const installArgs: string[] = IS_WINDOWS ? [this.setupBinary, '-i', this.installDestinationDir] : []
+
+    const cmdCode =await exec(installCommand, installArgs)
     if (IS_WINDOWS) {
       // We need to patch the registry to enable the virtualenv of python for the runner
       // in hindsight it may be better to just use the MSI installer TODO
       await exec(`echo ${this.virtualEnvFile} > "%USERPROFILE%\\.profile.cmd"`)
       await exec('reg add "HKCU\\Software\\Microsoft\\Command Processor" /v AutoRun /t REG_SZ /d "%USERPROFILE%\\.profile.cmd" /f')
     }
-    return await exec(installCommand, installArgs)
+    return cmdCode
   }
 
   public async cacheTool(): Promise<string> {
