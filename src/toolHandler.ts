@@ -89,7 +89,7 @@ export class DownloadExtractInstall {
   public async extractFile(): Promise<string> {
     const filePath = this.downloadedFile
     if (this.downloadUrl.substr(-4) === '.exe') {
-      await exec(`move ${filePath} ${filePath}.exe`)
+      await exec(`cmd /c move ${filePath} ${filePath}.exe`)
       this.downloadedFile = `${filePath}.exe`
       return this.extractedPath
     }
