@@ -87,8 +87,13 @@ export class DownloadExtractInstall {
   }
 
   public async extractFile(): Promise<string> {
-    if (this.downloadUrl.substr(-4) === '.exe') return this.extractedPath
     const filePath = this.downloadedFile
+    if (filePath.substr(-4) === '.exe') {
+      await exec(`move ${filePath} ${filePath}.exe`)
+      this.downloadedFile = `${filePath}.exe`
+      return this.extractedPath
+    }
+
     /* istanbul ignore next */
     if(process.platform === 'linux') {
       // await extractZip(this.downloadedFile) // This command currently throws an error on linux TODO
