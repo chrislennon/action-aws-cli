@@ -3,7 +3,7 @@ import {which} from '@actions/io'
 import {cacheDir, downloadTool, extractZip} from '@actions/tool-cache'
 // @ts-ignore
 import firstline from 'firstline'
-import {join} from 'path'
+import {join, parse} from 'path'
 import {_filterVersion} from './util'
 
 
@@ -18,8 +18,6 @@ export class DownloadExtractInstall {
   private installedBinaryDir: string
   private installedBinaryFile: string
   private installedVersion: string
-  private virtualEnvFile: string
-  private pythonSitePackages: string
 
   public constructor(downloadUrl: string) {
 
@@ -28,38 +26,32 @@ export class DownloadExtractInstall {
     this.extractedPath = __dirname
     const derivedPaths = this._updatePaths(this.extractedPath)
     // @ts-ignore
-    const {setupBinary, installedBinaryDir, installDestinationDir, virtualEnvFile, installedBinaryFile} = derivedPaths
+    const {setupBinary, installedBinaryDir, installDestinationDir, installedBinaryFile} = derivedPaths
     this.setupBinary = setupBinary
     this.installDestinationDir = installDestinationDir
     this.installedBinaryDir = installedBinaryDir
     this.installedBinaryFile = installedBinaryFile
-    this.virtualEnvFile = virtualEnvFile
     this.installedVersion = ''
-    this.pythonSitePackages = ''
   }
 
   private _updatePaths(extractedPath: string): object {
     const binDir = IS_WINDOWS ? 'Scripts' : 'bin'
     const binFile = IS_WINDOWS ? 'aws.cmd' : 'aws'
-    const venvFile = IS_WINDOWS ? 'activate.bat' : 'activate'
     const setupBinary = join(extractedPath, 'awscli-bundle', 'install')
     const installDestinationDir = join(extractedPath, '.local', 'lib', 'aws')
     const installedBinaryDir = join(installDestinationDir, binDir)
     const installedBinaryFile = join(installedBinaryDir, binFile)
-    const virtualEnvFile = join(installedBinaryDir, venvFile)
 
     this.setupBinary = setupBinary
     this.installDestinationDir = installDestinationDir
     this.installedBinaryDir = installedBinaryDir
     this.installedBinaryFile = installedBinaryFile
-    this.virtualEnvFile = virtualEnvFile
 
     const derivedPaths = {
       setupBinary,
       installDestinationDir,
       installedBinaryDir,
-      installedBinaryFile,
-      virtualEnvFile
+      installedBinaryFile
     }
     return derivedPaths
   }
@@ -83,12 +75,6 @@ export class DownloadExtractInstall {
 
   private async _getVersion(): Promise<string> {
     //const cmd: string = IS_WINDOWS ? `${this.virtualEnvFile} && ${this.installedBinaryFile}` : this.installedBinaryFile
-    if(IS_WINDOWS){
-      const cmd = `${this.virtualEnvFile} && python -c \"import site; print(site.getsitepackages())\"`
-      const versionCommandOutput = await this._getCommandOutput(cmd, [])
-      console.log(versionCommandOutput)
-      this.pythonSitePackages = versionCommandOutput
-    }
 
     const versionCommandOutput = await this._getCommandOutput(this.installedBinaryFile, ['--version'])
     this.installedVersion = _filterVersion(versionCommandOutput)
@@ -101,6 +87,7 @@ export class DownloadExtractInstall {
   }
 
   public async extractFile(): Promise<string> {
+    if (parse(this.downloadedFile).ext === '.exe') return this.extractedPath
     const filePath = this.downloadedFile
     /* istanbul ignore next */
     if(process.platform === 'linux') {
@@ -116,19 +103,12 @@ export class DownloadExtractInstall {
   }
 
   public async installPackage(): Promise<number> {
-    const pythonPath: string = await which('python', true)
-    const installCommand: string = IS_WINDOWS ? pythonPath : `${this.setupBinary} -i ${this.installDestinationDir}`
-    const installArgs: string[] = IS_WINDOWS ? [this.setupBinary, '-i', this.installDestinationDir] : []
+    // const pythonPath: string = await which('python', true)
+    const installCommand: string = IS_WINDOWS ? this.setupBinary : `${this.setupBinary} -i ${this.installDestinationDir}`
+    // const installArgs: string[] = IS_WINDOWS ? [this.setupBinary, '-i', this.installDestinationDir] : []
 
-    const cmdCode =await exec(installCommand, installArgs)
-    if (IS_WINDOWS) {
-      // We need to patch the registry to enable the virtualenv of python for the runner
-      // in hindsight it may be better to just use the MSI installer TODO
-      // await exec(`cmd /c echo ${this.virtualEnvFile} > %USERPROFILE%\\.profile.cmd`)
-      // await exec('reg add "HKCU\\Software\\Microsoft\\Command Processor" /v AutoRun /t REG_SZ /d "%USERPROFILE%\\.profile.cmd" /f')
-      await exec(`cmd /c set PYTHONPATH=%PYTHONPATH%;${this.pythonSitePackages}`)
-      await exec(`cmd /c set PATH=%PATH%;${this.pythonSitePackages}`)
-    }
+    const cmdCode =await exec(installCommand, [])
+
     return cmdCode
   }
 
