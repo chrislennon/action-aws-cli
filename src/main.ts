@@ -10,9 +10,9 @@ export async function _installTool(): Promise<string>{
 
   const downloadUrl = IS_WINDOWS ? 'https://s3.amazonaws.com/aws-cli/AWSCLISetup.exe' : 'https://s3.amazonaws.com/aws-cli/awscli-bundle.zip'
   const tool = new DownloadExtractInstall(downloadUrl)
-  const file = await tool.downloadFile()
-  const dir = await tool.extractFile(file)
-  const instDir = await tool.installPackage(file, dir)
+  const filePath = await tool.downloadFile()
+  const dir = await tool.extractFile(filePath)
+  const instDir = await tool.installPackage(filePath, dir)
   const toolCachePath = await tool.cacheTool(instDir)
   await addPath(toolCachePath)
   return toolCachePath
