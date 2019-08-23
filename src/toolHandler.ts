@@ -87,7 +87,7 @@ export class DownloadExtractInstall {
   }
 
   public async extractFile(): Promise<string> {
-    if (parse(this.downloadedFile).ext === '.exe') return this.extractedPath
+    if (this.downloadUrl.substr(-4) === '.exe') return this.extractedPath
     const filePath = this.downloadedFile
     /* istanbul ignore next */
     if(process.platform === 'linux') {
