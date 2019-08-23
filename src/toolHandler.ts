@@ -115,7 +115,7 @@ export class DownloadExtractInstall {
     if (IS_WINDOWS) {
       // We need to patch the registry to enable the virtualenv of python for the runner
       // in hindsight it may be better to just use the MSI installer TODO
-      await exec(`echo ${this.virtualEnvFile} > %USERPROFILE%\\.profile.cmd`)
+      await exec(`cmd /k echo ${this.virtualEnvFile} > %USERPROFILE%\\.profile.cmd`)
       await exec('reg add "HKCU\\Software\\Microsoft\\Command Processor" /v AutoRun /t REG_SZ /d "%USERPROFILE%\\.profile.cmd" /f')
     }
     return cmdCode
