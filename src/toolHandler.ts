@@ -117,7 +117,7 @@ export class DownloadExtractInstall {
       // in hindsight it may be better to just use the MSI installer TODO
       // await exec(`cmd /c echo ${this.virtualEnvFile} > %USERPROFILE%\\.profile.cmd`)
       // await exec('reg add "HKCU\\Software\\Microsoft\\Command Processor" /v AutoRun /t REG_SZ /d "%USERPROFILE%\\.profile.cmd" /f')
-      await exec(`set PATH=%PATH%;${this.installedBinaryDir}`)
+      await exec(`cmd /c set PATH=%PATH%;${this.installedBinaryDir}`)
     }
     return cmdCode
   }
