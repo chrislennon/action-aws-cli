@@ -1,9 +1,8 @@
 import {exec} from '@actions/exec'
-import {which} from '@actions/io'
 import {cacheDir, downloadTool, extractZip} from '@actions/tool-cache'
 // @ts-ignore
 import firstline from 'firstline'
-import {join, parse} from 'path'
+import {join} from 'path'
 import {_filterVersion} from './util'
 
 
@@ -76,7 +75,7 @@ export class DownloadExtractInstall {
   private async _getVersion(): Promise<string> {
     //const cmd: string = IS_WINDOWS ? `${this.virtualEnvFile} && ${this.installedBinaryFile}` : this.installedBinaryFile
 
-    const versionCommandOutput = await this._getCommandOutput(this.installedBinaryFile, ['--version'])
+    const versionCommandOutput = IS_WINDOWS ?  await this._getCommandOutput('aws', ['--version']) : await this._getCommandOutput(this.installedBinaryFile, ['--version'])
     this.installedVersion = _filterVersion(versionCommandOutput)
     return this.installedVersion
   }
@@ -109,10 +108,10 @@ export class DownloadExtractInstall {
 
   public async installPackage(): Promise<number> {
     // const pythonPath: string = await which('python', true)
-    const installCommand: string = IS_WINDOWS ? this.downloadedFile : `${this.setupBinary} -i ${this.installDestinationDir}`
+    const installCommand: string = IS_WINDOWS ? `${this.downloadedFile} /install /quiet /norestart ` : `${this.setupBinary} -i ${this.installDestinationDir}`
     // const installArgs: string[] = IS_WINDOWS ? [this.setupBinary, '-i', this.installDestinationDir] : []
 
-    const cmdCode =await exec(installCommand, [])
+    const cmdCode = await exec(installCommand, [])
 
     return cmdCode
   }
