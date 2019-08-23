@@ -75,7 +75,7 @@ export class DownloadExtractInstall {
   private async _getVersion(): Promise<string> {
     //const cmd: string = IS_WINDOWS ? `${this.virtualEnvFile} && ${this.installedBinaryFile}` : this.installedBinaryFile
 
-    const versionCommandOutput = IS_WINDOWS ?  await this._getCommandOutput('aws', ['--version']) : await this._getCommandOutput(this.installedBinaryFile, ['--version'])
+    const versionCommandOutput = IS_WINDOWS ?  await this._getCommandOutput('aws --version', []) : await this._getCommandOutput(this.installedBinaryFile, ['--version'])
     this.installedVersion = _filterVersion(versionCommandOutput)
     return this.installedVersion
   }
