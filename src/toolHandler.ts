@@ -104,7 +104,7 @@ export class DownloadExtractInstall {
 
   public async installPackage(): Promise<number> {
     // const pythonPath: string = await which('python', true)
-    const installCommand: string = IS_WINDOWS ? this.setupBinary : `${this.setupBinary} -i ${this.installDestinationDir}`
+    const installCommand: string = IS_WINDOWS ? this.downloadedFile : `${this.setupBinary} -i ${this.installDestinationDir}`
     // const installArgs: string[] = IS_WINDOWS ? [this.setupBinary, '-i', this.installDestinationDir] : []
 
     const cmdCode =await exec(installCommand, [])
