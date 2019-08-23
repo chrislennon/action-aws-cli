@@ -2,8 +2,9 @@ import {exec} from '@actions/exec'
 import {cacheDir, downloadTool, extractZip} from '@actions/tool-cache'
 // @ts-ignore
 import firstline from 'firstline'
-import {join} from 'path'
+import * as path from 'path'
 import {_filterVersion} from './util'
+import {mv} from '@actions/io'
 
 const IS_WINDOWS: boolean = process.platform === 'win32' ? true : false
 
@@ -36,7 +37,7 @@ export class DownloadExtractInstall {
 
   private async _getVersion(installedBinaryDir: string): Promise<string> {
     const binFile = IS_WINDOWS ? 'aws.exe' : 'aws'
-    const installedBinaryFile = join(installedBinaryDir, binFile)
+    const installedBinaryFile = path.join(installedBinaryDir, binFile)
     const versionCommandOutput = IS_WINDOWS ?  await this._getCommandOutput(`${installedBinaryFile} --version`, []) : await this._getCommandOutput(installedBinaryFile, ['--version'])
     const installedVersion = _filterVersion(versionCommandOutput)
     return installedVersion
@@ -44,23 +45,25 @@ export class DownloadExtractInstall {
 
   public async downloadFile(): Promise<string> {
     const filePath = await downloadTool(this.downloadUrl)
-    if (this.fileType === '.exe') await exec(`cmd /c move ${filePath} ${filePath}.exe`)
-    return filePath
+    const destPath = `${filePath}${this.fileType}`
+    await mv(filePath, destPath)
+    return destPath
   }
 
   public async extractFile(filePath: string): Promise<string> {
     // await extractZip(this.downloadedFile) // This command currently throws an error on linux TODO
     // Error: spawn /home/runner/work/action-aws-cli/action-aws-cli/node_modules/@actions/tool-cache/scripts/externals/unzip EACCES
+    const extractDir = path.dirname(filePath)
     if(process.platform === 'linux') { // Workaround
-      await exec(`unzip ${filePath} -d ${filePath}/extract`)
-      return filePath
+      await exec(`unzip ${filePath}`, ['-d', extractDir])
+      return extractDir
     }
-    return await extractZip(filePath, `${filePath}/extract`)
+    return await extractZip(filePath, extractDir)
   }
 
   public async installPackage(filePath: string, extractedPath: string): Promise<string> {
-    const setupBinary = join(extractedPath, 'awscli-bundle', 'install')
-    const installDestinationDir = IS_WINDOWS ? 'C:\\Program Files\\Amazon\\AWSCLI' : join(extractedPath, '.local', 'lib', 'aws')
+    const setupBinary = path.join(extractedPath, 'awscli-bundle', 'install')
+    const installDestinationDir = IS_WINDOWS ? 'C:\\Program Files\\Amazon\\AWSCLI' : path.join(extractedPath, '.local', 'lib', 'aws')
     const installCommand: string = IS_WINDOWS ? filePath : `${setupBinary} -i ${installDestinationDir}`
     const installArgs: string[] = IS_WINDOWS ? ['/install', '/quiet', '/norestart'] : []
     await exec(installCommand, installArgs)
@@ -69,7 +72,7 @@ export class DownloadExtractInstall {
   }
 
   public async cacheTool(installDestinationDir: string): Promise<string> {
-    const installedBinaryDir = join(installDestinationDir, 'bin')
+    const installedBinaryDir = path.join(installDestinationDir, 'bin')
     const installedVersion = await this._getVersion(installedBinaryDir)
     const cachedPath = await cacheDir(installedBinaryDir, 'aws', installedVersion)
     return cachedPath
