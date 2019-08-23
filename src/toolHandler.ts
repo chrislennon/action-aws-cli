@@ -112,6 +112,7 @@ export class DownloadExtractInstall {
     // const installArgs: string[] = IS_WINDOWS ? [this.setupBinary, '-i', this.installDestinationDir] : []
 
     const cmdCode = await exec(installCommand, [])
+    await exec('cmd /c setx /M path "%path%C:\\Program Files\\Amazon\\AWSCLI\"')
 
     return cmdCode
   }
