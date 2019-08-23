@@ -1,9 +1,9 @@
 import {exec} from '@actions/exec'
 import {cacheDir, downloadTool, extractZip} from '@actions/tool-cache'
 // @ts-ignore
-import firstline from 'firstline'
+import * as firstline from 'firstline'
 import * as path from 'path'
-import {_filterVersion} from './util'
+import {_filterVersion, _readFile} from './util'
 import {mv} from '@actions/io'
 
 const IS_WINDOWS: boolean = process.platform === 'win32' ? true : false
@@ -17,9 +17,8 @@ export class DownloadExtractInstall {
     this.fileType = this.downloadUrl.substr(-4)
   }
 
-  private async _getCommandOutput(command: string, args: string[]): Promise<string> {
+  private async _getCommandOutput(command: string, args: string[], logFile: string): Promise<string> {
     let stdErr = ''
-    const outputFileName = 'output.txt'
     const options = {
       windowsVerbatimArguments: true,
       listeners : {
@@ -28,15 +27,16 @@ export class DownloadExtractInstall {
         }
       }
     }
-    command = IS_WINDOWS ? `${command} > ${outputFileName}` : command
 
     await exec(command, args, options)
+    const log = await _readFile(logFile, {})
+    console.log(`log: ${log}`)
 
-    return IS_WINDOWS ? await firstline(outputFileName) : stdErr
+    return IS_WINDOWS ? await _readFile(logFile, {}) : stdErr
   }
 
-  private async _getVersion(installedBinary: string): Promise<string> {
-    const versionCommandOutput = IS_WINDOWS ?  await this._getCommandOutput(`${installedBinary} --version`, []) : await this._getCommandOutput(installedBinary, ['--version'])
+  private async _getVersion(installedBinary: string, logFile: string): Promise<string> {
+    const versionCommandOutput = IS_WINDOWS ? await this._getCommandOutput(`${installedBinary} --version > ${logFile}`, [], logFile) : await this._getCommandOutput(installedBinary, ['--version'], logFile)
     const installedVersion = _filterVersion(versionCommandOutput)
 
     return installedVersion
@@ -65,12 +65,11 @@ export class DownloadExtractInstall {
   }
 
   public async installPackage(installCommand: string, installArgs: string[]): Promise<number> {
-    // if (IS_WINDOWS) await exec('cmd /c setx /M path "%path%;C:\\Program Files\\Amazon\\AWSCLI\"') //  ¯\_(ツ)_/¯
     return await exec(installCommand, installArgs)
   }
 
-  public async cacheTool(installedBinary: string): Promise<string> {
-    const installedVersion = await this._getVersion(installedBinary)
+  public async cacheTool(installedBinary: string, logFile: string): Promise<string> {
+    const installedVersion = await this._getVersion(installedBinary, logFile)
     const cachedPath = await cacheDir(path.parse(installedBinary).dir, 'aws', installedVersion)
 
     return cachedPath

@@ -1,4 +1,5 @@
 import {find} from '@actions/tool-cache'
+import {which} from '@actions/io'
 import {addPath} from '@actions/core/lib/core'
 import {DownloadExtractInstall} from './toolHandler'
 import * as path from 'path'
@@ -8,6 +9,9 @@ const IS_WINDOWS: boolean = process.platform === 'win32' ? true : false
 export async function _installTool(): Promise<string>{
   const toolPath: string = find('aws', '*')
   if (toolPath) return toolPath
+  const awsPath: string = await which('aws', true)
+  console.log(awsPath)
+  // if (awsPath) return awsPath
 
   const downloadUrl = IS_WINDOWS ? 'https://s3.amazonaws.com/aws-cli/AWSCLISetup.exe' : 'https://s3.amazonaws.com/aws-cli/awscli-bundle.zip'
   const tool = new DownloadExtractInstall(downloadUrl)
@@ -18,13 +22,13 @@ export async function _installTool(): Promise<string>{
     filePath = path.join(extractedPath, 'awscli-bundle', 'install')
   }
 
-  const installDestinationDir = IS_WINDOWS ? 'C:\\Program Files\\Amazon\\AWSCLI' : path.join(path.parse(filePath).dir, '.local', 'lib', 'aws')
+  const installDestinationDir = IS_WINDOWS ? 'C:\\PROGRA~1\\Amazon\\AWSCLI' : path.join(path.parse(filePath).dir, '.local', 'lib', 'aws')
   const installArgs: string[] = IS_WINDOWS ? ['/install', '/quiet', '/norestart'] : ['-i', installDestinationDir]
-  await tool.installPackage(filePath, installArgs)
+  //await tool.installPackage(filePath, installArgs)
 
   const binFile = IS_WINDOWS ? 'aws.exe' : 'aws'
   const installedBinary = path.join(installDestinationDir, 'bin', binFile)
-  const toolCachePath = await tool.cacheTool(installedBinary)
+  const toolCachePath = await tool.cacheTool(installedBinary, path.join(path.parse(filePath).dir, 'log.txt'))
   await addPath(toolCachePath)
 
   return toolCachePath

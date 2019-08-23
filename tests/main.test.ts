@@ -24,10 +24,10 @@ function setupTest(): void
     await rmRF(cachePath)
     await rmRF(tempPath)
   })
-  afterAll(async function () {
-    await rmRF(tempPath)
-    await rmRF(cachePath)
-  })
+  // afterAll(async function () {
+  //   await rmRF(tempPath)
+  //   await rmRF(cachePath)
+  // })
 }
 
 describe('Test Functions', () => {
