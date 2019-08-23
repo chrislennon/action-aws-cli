@@ -49,10 +49,7 @@ export class DownloadExtractInstall {
   }
 
   public async extractFile(filePath: string): Promise<string> {
-    // await extractZip(this.downloadedFile) // This command currently throws an error on linux TODO
-    // Error: spawn /home/runner/work/action-aws-cli/action-aws-cli/node_modules/@actions/tool-cache/scripts/externals/unzip EACCES
-    if(process.platform === 'linux') await exec(`unzip ${filePath}`)  // Workaround
-    return (process.platform === 'linux') ? await extractZip(filePath) : __dirname
+    return await extractZip(filePath)
   }
 
   public async installPackage(filePath: string, extractedPath: string): Promise<string> {
