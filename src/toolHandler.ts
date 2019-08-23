@@ -10,12 +10,10 @@ const IS_WINDOWS: boolean = process.platform === 'win32' ? true : false
 
 export class DownloadExtractInstall {
   private readonly downloadUrl: string
-  private extractedPath: string
   private readonly fileType: string
 
   public constructor(downloadUrl: string) {
     this.downloadUrl = downloadUrl
-    this.extractedPath = __dirname
     this.fileType = this.downloadUrl.substr(-4)
   }
 
@@ -31,50 +29,50 @@ export class DownloadExtractInstall {
       }
     }
     command = IS_WINDOWS ? `${command} > ${outputFileName}` : command
+
     await exec(command, args, options)
+
     return IS_WINDOWS ? await firstline(outputFileName) : stdErr
   }
 
-  private async _getVersion(installedBinaryDir: string): Promise<string> {
-    const binFile = IS_WINDOWS ? 'aws.exe' : 'aws'
-    const installedBinaryFile = path.join(installedBinaryDir, binFile)
-    const versionCommandOutput = IS_WINDOWS ?  await this._getCommandOutput(`${installedBinaryFile} --version`, []) : await this._getCommandOutput(installedBinaryFile, ['--version'])
+  private async _getVersion(installedBinary: string): Promise<string> {
+    const versionCommandOutput = IS_WINDOWS ?  await this._getCommandOutput(`${installedBinary} --version`, []) : await this._getCommandOutput(installedBinary, ['--version'])
     const installedVersion = _filterVersion(versionCommandOutput)
+
     return installedVersion
   }
 
   public async downloadFile(): Promise<string> {
     const filePath = await downloadTool(this.downloadUrl)
     const destPath = `${filePath}${this.fileType}`
+
     await mv(filePath, destPath)
+
     return destPath
   }
 
   public async extractFile(filePath: string): Promise<string> {
+    const extractDir = path.dirname(filePath)
+
     // await extractZip(this.downloadedFile) // This command currently throws an error on linux TODO
     // Error: spawn /home/runner/work/action-aws-cli/action-aws-cli/node_modules/@actions/tool-cache/scripts/externals/unzip EACCES
-    const extractDir = path.dirname(filePath)
     if(process.platform === 'linux') { // Workaround
       await exec(`unzip ${filePath}`, ['-d', extractDir])
       return extractDir
     }
+
     return await extractZip(filePath, extractDir)
   }
 
-  public async installPackage(filePath: string, extractedPath: string): Promise<string> {
-    const setupBinary = path.join(extractedPath, 'awscli-bundle', 'install')
-    const installDestinationDir = IS_WINDOWS ? 'C:\\Program Files\\Amazon\\AWSCLI' : path.join(extractedPath, '.local', 'lib', 'aws')
-    const installCommand: string = IS_WINDOWS ? filePath : `${setupBinary} -i ${installDestinationDir}`
-    const installArgs: string[] = IS_WINDOWS ? ['/install', '/quiet', '/norestart'] : []
-    await exec(installCommand, installArgs)
+  public async installPackage(installCommand: string, installArgs: string[]): Promise<number> {
     // if (IS_WINDOWS) await exec('cmd /c setx /M path "%path%;C:\\Program Files\\Amazon\\AWSCLI\"') //  ¯\_(ツ)_/¯
-    return installDestinationDir
+    return await exec(installCommand, installArgs)
   }
 
-  public async cacheTool(installDestinationDir: string): Promise<string> {
-    const installedBinaryDir = path.join(installDestinationDir, 'bin')
-    const installedVersion = await this._getVersion(installedBinaryDir)
-    const cachedPath = await cacheDir(installedBinaryDir, 'aws', installedVersion)
+  public async cacheTool(installedBinary: string): Promise<string> {
+    const installedVersion = await this._getVersion(installedBinary)
+    const cachedPath = await cacheDir(path.parse(installedBinary).dir, 'aws', installedVersion)
+
     return cachedPath
   }
 }
