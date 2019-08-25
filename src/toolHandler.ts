@@ -20,7 +20,7 @@ export class DownloadExtractInstall {
   private async _getCommandOutput(command: string, args: string[], logFile: string): Promise<string> {
     let stdErr = ''
     const options = {
-      windowsVerbatimArguments: true,
+      windowsVerbatimArguments: false,
       listeners : {
         stderr: (data: Buffer) => { // AWS cli --version goes to stderr: https://stackoverflow.com/a/43284161
           stdErr += data.toString()
@@ -28,9 +28,8 @@ export class DownloadExtractInstall {
       }
     }
 
+    if (IS_WINDOWS) command = `cmd /c ${command}`
     await exec(command, args, options)
-    const log = await _readFile(logFile, {})
-    console.log(`log: ${log}`)
 
     return IS_WINDOWS ? await _readFile(logFile, {}) : stdErr
   }

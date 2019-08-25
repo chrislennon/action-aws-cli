@@ -35,7 +35,9 @@ export async function _installTool(): Promise<string>{
 
   const binFile = IS_WINDOWS ? 'aws.exe' : 'aws'
   const installedBinary = path.join(installDestinationDir, 'bin', binFile)
-  const toolCachePath = await tool.cacheTool(installedBinary, path.join(path.parse(filePath).dir, 'log.txt'))
+  
+  const logFile =  path.normalize(path.join(path.parse(filePath).dir, 'log.txt'))
+  const toolCachePath = await tool.cacheTool(installedBinary, logFile)
   await addPath(toolCachePath)
 
   return toolCachePath
