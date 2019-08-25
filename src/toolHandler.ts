@@ -1,121 +1,76 @@
 import {exec} from '@actions/exec'
-import {which} from '@actions/io'
 import {cacheDir, downloadTool, extractZip} from '@actions/tool-cache'
 // @ts-ignore
-import firstline from 'firstline'
-import {join} from 'path'
-import {_filterVersion} from './util'
-
+import * as firstline from 'firstline'
+import * as path from 'path'
+import {_filterVersion, _readFile} from './util'
+import {mv} from '@actions/io'
 
 const IS_WINDOWS: boolean = process.platform === 'win32' ? true : false
 
 export class DownloadExtractInstall {
   private readonly downloadUrl: string
-  private downloadedFile: string
-  private extractedPath: string
-  private setupBinary: string
-  private installDestinationDir: string
-  private installedBinaryDir: string
-  private installedBinaryFile: string
-  private installedVersion: string
-  private virtualEnvFile: string
+  private readonly fileType: string
 
   public constructor(downloadUrl: string) {
-
     this.downloadUrl = downloadUrl
-    this.downloadedFile = ''
-    this.extractedPath = __dirname
-    const derivedPaths = this._updatePaths(this.extractedPath)
-    // @ts-ignore
-    const {setupBinary, installedBinaryDir, installDestinationDir, virtualEnvFile, installedBinaryFile} = derivedPaths
-    this.setupBinary = setupBinary
-    this.installDestinationDir = installDestinationDir
-    this.installedBinaryDir = installedBinaryDir
-    this.installedBinaryFile = installedBinaryFile
-    this.virtualEnvFile = virtualEnvFile
-    this.installedVersion = ''
+    this.fileType = this.downloadUrl.substr(-4)
   }
 
-  private _updatePaths(extractedPath: string): object {
-    const binDir = IS_WINDOWS ? 'Scripts' : 'bin'
-    const binFile = IS_WINDOWS ? 'aws.cmd' : 'aws'
-    const venvFile = IS_WINDOWS ? 'activate.bat' : 'activate'
-    const setupBinary = join(extractedPath, 'awscli-bundle', 'install')
-    const installDestinationDir = join(extractedPath, '.local', 'lib', 'aws')
-    const installedBinaryDir = join(installDestinationDir, binDir)
-    const installedBinaryFile = join(installedBinaryDir, binFile)
-    const virtualEnvFile = join(installedBinaryDir, venvFile)
-
-    this.setupBinary = setupBinary
-    this.installDestinationDir = installDestinationDir
-    this.installedBinaryDir = installedBinaryDir
-    this.installedBinaryFile = installedBinaryFile
-    this.virtualEnvFile = virtualEnvFile
-
-    const derivedPaths = {
-      setupBinary,
-      installDestinationDir,
-      installedBinaryDir,
-      installedBinaryFile,
-      virtualEnvFile
-    }
-    return derivedPaths
-  }
-
-  private async _getCommandOutput(command: string, args: string[]): Promise<string> {
+  private async _getCommandOutput(command: string, args: string[], logFile: string): Promise<string> {
     let stdErr = ''
-    const outputFileName = 'output.txt'
     const options = {
-      windowsVerbatimArguments: true,
+      windowsVerbatimArguments: false,
       listeners : {
         stderr: (data: Buffer) => { // AWS cli --version goes to stderr: https://stackoverflow.com/a/43284161
           stdErr += data.toString()
         }
       }
     }
-    command = IS_WINDOWS ? `${command} > ${outputFileName}` : command
+
+    if (IS_WINDOWS) command = `cmd /c ${command}`
     await exec(command, args, options)
-    const versionString = IS_WINDOWS ? await firstline(outputFileName) : stdErr
-    return versionString
+
+    return IS_WINDOWS ? await _readFile(logFile, {}) : stdErr
   }
 
-  private async _getVersion(): Promise<string> {
-    const cmd: string = IS_WINDOWS ? `${this.virtualEnvFile} && ${this.installedBinaryFile}` : this.installedBinaryFile
-    const versionCommandOutput = await this._getCommandOutput(cmd, ['--version'])
-    this.installedVersion = _filterVersion(versionCommandOutput)
-    return this.installedVersion
+  private async _getVersion(installedBinary: string, logFile: string): Promise<string> {
+    const versionCommandOutput = IS_WINDOWS ? await this._getCommandOutput(`${installedBinary} --version > ${logFile}`, [], logFile) : await this._getCommandOutput(installedBinary, ['--version'], logFile)
+    const installedVersion = _filterVersion(versionCommandOutput)
+
+    return installedVersion
   }
 
   public async downloadFile(): Promise<string> {
-    this.downloadedFile = await downloadTool(this.downloadUrl)
-    return this.downloadedFile
+    const filePath = await downloadTool(this.downloadUrl)
+    const destPath = `${filePath}${this.fileType}`
+
+    await mv(filePath, destPath)
+
+    return destPath
   }
 
-  public async extractFile(): Promise<string> {
-    const filePath = this.downloadedFile
-    /* istanbul ignore next */
-    if(process.platform === 'linux') {
-      // await extractZip(this.downloadedFile) // This command currently throws an error on linux TODO
-      // Error: spawn /home/runner/work/action-aws-cli/action-aws-cli/node_modules/@actions/tool-cache/scripts/externals/unzip EACCES
-      await exec(`unzip ${filePath} -d ${this.extractedPath}`)
-    } else {
-      /* istanbul ignore next */
-      this.extractedPath = await extractZip(filePath)
-      this._updatePaths(this.extractedPath)
+  public async extractFile(filePath: string): Promise<string> {
+    const extractDir = path.dirname(filePath)
+
+    // await extractZip(this.downloadedFile) // This command currently throws an error on linux TODO
+    // Error: spawn /home/runner/work/action-aws-cli/action-aws-cli/node_modules/@actions/tool-cache/scripts/externals/unzip EACCES
+    if(process.platform === 'linux') { // Workaround
+      await exec(`unzip ${filePath}`, ['-d', extractDir])
+      return extractDir
     }
-    return this.extractedPath
+
+    return await extractZip(filePath, extractDir)
   }
 
-  public async installPackage(): Promise<number> {
-    const pythonPath: string = await which('python', true)
-    const installCommand: string = IS_WINDOWS ? pythonPath : `${this.setupBinary} -i ${this.installDestinationDir}`
-    const installArgs: string[] = IS_WINDOWS ? [this.setupBinary, '-i', this.installDestinationDir] : []
+  public async installPackage(installCommand: string, installArgs: string[]): Promise<number> {
     return await exec(installCommand, installArgs)
   }
 
-  public async cacheTool(): Promise<string> {
-    const installedVersion = await this._getVersion()
-    const cachedPath = await cacheDir(this.installedBinaryDir, 'aws', installedVersion)
+  public async cacheTool(installedBinary: string, logFile: string): Promise<string> {
+    const installedVersion = await this._getVersion(installedBinary, logFile)
+    const cachedPath = await cacheDir(path.parse(installedBinary).dir, 'aws', installedVersion)
+
     return cachedPath
   }
 }
