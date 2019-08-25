@@ -1,7 +1,6 @@
 import {exec} from '@actions/exec'
-import {cacheDir, downloadTool, extractZip} from '@actions/tool-cache'
-// @ts-ignore
-import * as firstline from 'firstline'
+import {find, cacheDir, downloadTool, extractZip} from '@actions/tool-cache'
+import {which} from '@actions/io'
 import * as path from 'path'
 import {_filterVersion, _readFile} from './util'
 import {mv} from '@actions/io'
@@ -17,28 +16,52 @@ export class DownloadExtractInstall {
     this.fileType = this.downloadUrl.substr(-4)
   }
 
-  private async _getCommandOutput(command: string, args: string[], logFile: string): Promise<string> {
+  public async isAlreadyInstalled(toolName: string): Promise<boolean | string> {
+    const cachePath = await find(toolName, '*')
+    const systemPath = await which(toolName)
+    if (cachePath) return cachePath
+    if (systemPath) {
+      // return await this.cacheTool(systemPath) // TODO Better logic for cache addition
+      return systemPath
+    }
+    return false
+  }
+
+  private async _getVersion(installedBinary: string): Promise<string> {
+    const versionCommandOutput = await this._getCommandOutput(installedBinary, ['--version'])
+    const installedVersion = _filterVersion(versionCommandOutput)
+
+    return installedVersion
+  }
+
+  private async _getCommandOutput(commandStr: string, args: string[]): Promise<string> {
+    const logFile = path.join(__dirname, 'log.txt')
     let stdErr = ''
+    let stdOut = ''
     const options = {
       windowsVerbatimArguments: false,
       listeners : {
         stderr: (data: Buffer) => { // AWS cli --version goes to stderr: https://stackoverflow.com/a/43284161
           stdErr += data.toString()
+        },
+        stdout: (data: Buffer) => {
+          stdOut += data.toString()
         }
       }
     }
 
-    if (IS_WINDOWS) command = `cmd /c ${command}`
-    await exec(command, args, options)
-
-    return IS_WINDOWS ? await _readFile(logFile, {}) : stdErr
-  }
-
-  private async _getVersion(installedBinary: string, logFile: string): Promise<string> {
-    const versionCommandOutput = IS_WINDOWS ? await this._getCommandOutput(`${installedBinary} --version > ${logFile}`, [], logFile) : await this._getCommandOutput(installedBinary, ['--version'], logFile)
-    const installedVersion = _filterVersion(versionCommandOutput)
-
-    return installedVersion
+    if (IS_WINDOWS) {
+      args.push('>', logFile)
+      args.unshift(commandStr)
+      args.unshift('/c')
+      commandStr = 'cmd'
+      await exec(commandStr, args, options)
+      return await _readFile(logFile, {})
+    } else {
+      await exec(commandStr, args, options)
+      if (stdOut === '') return stdErr
+      return stdOut
+    }
   }
 
   public async downloadFile(): Promise<string> {
@@ -67,10 +90,9 @@ export class DownloadExtractInstall {
     return await exec(installCommand, installArgs)
   }
 
-  public async cacheTool(installedBinary: string, logFile: string): Promise<string> {
-    const installedVersion = await this._getVersion(installedBinary, logFile)
+  public async cacheTool(installedBinary: string): Promise<string> {
+    const installedVersion = await this._getVersion(installedBinary)
     const cachedPath = await cacheDir(path.parse(installedBinary).dir, 'aws', installedVersion)
-
     return cachedPath
   }
 }
