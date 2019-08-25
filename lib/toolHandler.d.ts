@@ -1,19 +1,11 @@
 export declare class DownloadExtractInstall {
     private readonly downloadUrl;
-    private downloadedFile;
-    private extractedPath;
-    private setupBinary;
-    private installDestinationDir;
-    private installedBinaryDir;
-    private installedBinaryFile;
-    private installedVersion;
-    private virtualEnvFile;
+    private readonly fileType;
     constructor(downloadUrl: string);
-    private _updatePaths;
     private _getCommandOutput;
     private _getVersion;
     downloadFile(): Promise<string>;
-    extractFile(): Promise<string>;
-    installPackage(): Promise<number>;
-    cacheTool(): Promise<string>;
+    extractFile(filePath: string): Promise<string>;
+    installPackage(installCommand: string, installArgs: string[]): Promise<number>;
+    cacheTool(installedBinary: string, logFile: string): Promise<string>;
 }
